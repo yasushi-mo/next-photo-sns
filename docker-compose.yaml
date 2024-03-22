@@ -1,6 +1,5 @@
 version: "3"
 services:
-
   ps-db-user:
     image: postgres:latest
     environment:
@@ -26,10 +25,11 @@ services:
       MINIO_ROOT_PASSWORD: password
     volumes:
       - .minio:/data
-    command: server --console-address ":9001" /data
+    command: server --console-address ":9101" /data
+    # 9000 is used by System on Windows
     ports:
-      - 9000:9000
-      - 9001:9001
+      - 9100:9000
+      - 9101:9001
 volumes:
   user_volumes:
   data_volumes:
